@@ -1,0 +1,40 @@
+
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: A
+  entrypoint: 'bash'
+  args:
+  - '-eEuo'
+  - 'pipefail'
+  - '-c'
+  - |-
+    if (( $(date '+%-e') % 2 )); then
+      echo "today is an odd day"
+    else
+      echo "today is an odd day, with an even number"
+    fi
+
+    - name: 'gcr.io/cloud-builders/gcloud'
+  id: A
+  entrypoint: 'bash'
+  args:
+  - '-eEuo'
+  - 'pipefail'
+  - '-c'
+  - |-
+    if (( $(date '+%-e') % 2 )); then
+      echo "today is an odd day"
+    else
+      echo "today is an odd day, with an even number"
+    fi
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: Update staging server
+  entrypoint: /bin/sh
+  args:
+  - '-c'
+  - |
+    set -x && \
+    gcloud compute ssh beranger-node-server --zone=europe-west2-c --command='/bin/sh /home/bnatanelic/pull.sh'
+  waitFor:
+  - A
