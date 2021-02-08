@@ -9,7 +9,7 @@ const app = require('./api/app')
  * --------------- */
 
 // Define app port
-const appPort = process.env.PORT || 3000
+const appPort = process.env.PORT || 8080
 app.set('port', appPort)
 
 // Create Web server
