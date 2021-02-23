@@ -17,3 +17,5 @@ To run the server locally, run :
 `npm run start`
 
 You can now GET `http://localhost:3000/api/v1/ping` using Postman or a browser.
+
+## Test push
