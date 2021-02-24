@@ -1,5 +1,5 @@
 const ping = async (req, res) => {
-    res.apiResponse('pong from CI CD process, root user')
+    res.apiResponse('pong')
 }
 
 module.exports = { ping }
